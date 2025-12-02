@@ -1,6 +1,6 @@
-package com.andradejhuan.course.resources;
+package com.andradejhuan.spring_course.resources;
 
-import com.andradejhuan.course.entities.User;
+import com.andradejhuan.spring_course.entities.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
