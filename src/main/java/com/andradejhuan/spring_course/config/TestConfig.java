@@ -1,8 +1,10 @@
 package com.andradejhuan.spring_course.config;
 
+import com.andradejhuan.spring_course.entities.Category;
 import com.andradejhuan.spring_course.entities.Order;
 import com.andradejhuan.spring_course.entities.OrderStatus;
 import com.andradejhuan.spring_course.entities.User;
+import com.andradejhuan.spring_course.repositories.CategoryRepository;
 import com.andradejhuan.spring_course.repositories.OrderRepository;
 import com.andradejhuan.spring_course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ import java.util.Arrays;
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -33,7 +38,12 @@ public class TestConfig implements CommandLineRunner {
         Order o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), OrderStatus.PAID, u2);
         Order o3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), OrderStatus.SHIPPED, u1);
 
+        Category cat1 = new Category(null, "Electronics");
+        Category cat2 = new Category(null, "Books");
+        Category cat3 = new Category(null, "Computers");
+
         userRepository.saveAll(Arrays.asList(u1, u2));
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+        categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
     }
 }
