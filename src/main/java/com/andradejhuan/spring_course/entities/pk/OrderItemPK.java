@@ -31,6 +31,7 @@ public class OrderItemPK implements Serializable {
         this.order = order;
     }
 
+    @JsonIgnore //Cortar loop de Json no endpoint /products
     public Product getProduct() {
         return product;
     }
